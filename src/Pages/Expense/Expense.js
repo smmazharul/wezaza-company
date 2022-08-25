@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AvailableExpense from './AvailableExpense';
 import ExpenseBanner from './ExpenseBanner';
 
 const Expense = () => {
+    const [date, setDate] = useState(new Date());
     return (
         <div>
-            <ExpenseBanner/>
+            <ExpenseBanner date={date} setDate={setDate} />
+            <AvailableExpense date={date}/>
         </div> 
     );
 };
