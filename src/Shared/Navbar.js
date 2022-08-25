@@ -13,7 +13,7 @@ const Navbar = () => {
             <li><a>Submenu 2</a></li>
           </ul>
         </li> */}
-        <li><Link to="Expense">Expense</Link></li>
+        <li><Link to="expense">Expense</Link></li>
         <li><Link to="login">Login</Link></li>
         </>
     return (
@@ -29,7 +29,7 @@ const Navbar = () => {
     </div>
     <a class="btn btn-ghost normal-case text-xl">WeZaZa</a>
   </div>
-  <div class="navbar-center hidden lg:flex">
+  <div class="navbar-end hidden lg:flex">
     <ul class="menu menu-horizontal p-0">
      {menuItems}
     </ul>
