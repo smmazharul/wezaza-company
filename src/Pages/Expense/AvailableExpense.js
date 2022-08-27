@@ -7,7 +7,7 @@ const AvailableExpense = ({ date }) => {
   const [expenseCatagories, setExpenseCatagories] = useState([]);
   const [expense, setExpense] = useState(null);
   useEffect(() => {
-    fetch("ExpenseCatagory.json")
+    fetch("http://localhost:5000/expense")
       .then((res) => res.json())
       .then((data) => setExpenseCatagories(data));
   }, []);
@@ -27,7 +27,7 @@ const AvailableExpense = ({ date }) => {
           />
         ))}
           </div>
-          {expense && <ExpenseModule expense={ expense} />}
+          {expense && <ExpenseModule date={date} setExpense={setExpense} expense={ expense} />}
     </div>
   );
 };
