@@ -1,14 +1,15 @@
 import React from "react";
 import { format } from "date-fns";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 const ExpenseModule = ({ date, expense ,setExpense}) => {
   const { name,} = expense;
   var today=new Date()
   const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-
+  const [user, loading, error] = useAuthState(auth);
+ 
   const handleExpense = (e) => {
     e.preventDefault()
-    const slot = e.target.name.value;
-    console.log(slot);
     setExpense(null)
   }
   return (
@@ -40,7 +41,8 @@ const ExpenseModule = ({ date, expense ,setExpense}) => {
             <input
               type="text"
               name="name"
-              placeholder="Your Name"
+              disabled
+              value={user?.displayName ||user?.email}
               className="input input-bordered w-full max-w-xs"
             />
             
